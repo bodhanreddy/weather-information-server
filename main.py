@@ -5,11 +5,11 @@ mcp = FastMCP("Weather-info")
 
 @mcp.tool()
 def get_weather_data(location:str) -> dict:
-    api_key = "ad22d0f7bd55ef17639c492028adccf3"
+    api_key = "your-api-key"
     url = f"https://api.openweathermap.org/data/2.5/weather?q={location}&APPID={api_key}"
     try:
         response = requests.get(url, timeout=5)
-        response.raise_for_status()  # Raise an error for HTTP errors
+        response.raise_for_status()
         data = response.json()
         return {
             "city": data["name"],
